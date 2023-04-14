@@ -1,6 +1,6 @@
 node {   
     stage('Clone repository') {
-        git credentialsId: 'git', url: 'https://github.com/app533/JenkinsPipepline'
+        git credentialsId: 'GitHub', url: 'https://github.com/app533/JenkinsPipepline'
     }
     
     stage('Build image') {
