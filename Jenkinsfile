@@ -16,7 +16,7 @@ pipeline {
     }
     stage('Test') {
        steps {
-                sh 'docker run --rm tmujee200/ndockerfile echo "Container launched successfully"'
+                sh 'docker run --rm tmujee200/dockerfile echo "Container launched successfully"'
             }
         }
 
