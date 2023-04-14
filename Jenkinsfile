@@ -6,7 +6,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'docker image build --tag CWpoveimage tmujee200/dockerfile .'
+        sh 'docker build -t  tmujee200/dockerfile:CWpoveimage . '
       }
     }
     stage('Login') {
