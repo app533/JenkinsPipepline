@@ -1,15 +1,28 @@
-node {   
-    stage('Clone repository') {
-        git credentialsId: 'GitHub', url: 'https://github.com/app533/JenkinsPipepline'
+pipeline {
+  agent any
+  environment {
+    DOCKERHUB_CREDENTIALS = credentials('fordocker')
+  }
+  stages {
+    stage('Build') {
+      steps {
+        sh 'docker build -t tmujee200/DockerFile .'
+      }
     }
-    
-    stage('Build image') {
-       dockerImage = docker.build("tmujee200/DockerFile")
+    stage('Login') {
+      steps {
+        sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+      }
     }
-    
- stage('Push image') {
-        withDockerRegistry([ credentialsId: "fordocker", url: "" ]) {
-        dockerImage.push()
-        }
-    }    
+    stage('Push') {
+      steps {
+        sh 'docker push tmujee200/DockerFile'
+      }
+    }
+  }
+  post {
+    always {
+      sh 'docker logout'
+    }
+  }
 }
