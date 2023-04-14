@@ -6,7 +6,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'docker build -t tmujee200/DockerFile .'
+        sh 'docker build -t tmujee200/dockerfile .'
       }
     }
     stage('Login') {
@@ -16,7 +16,7 @@ pipeline {
     }
     stage('Push') {
       steps {
-        sh 'docker push tmujee200/DockerFile'
+        sh 'docker push tmujee200/dockerfile'
       }
     }
   }
