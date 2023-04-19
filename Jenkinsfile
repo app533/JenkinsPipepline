@@ -16,7 +16,7 @@ pipeline {
     }
     stage('Test') {
        steps {
-              sh 'docker run --rm tmujee200/dockerfile echo "Container lau>
+              sh 'docker run --rm tmujee200/dockerfile echo "Container lau>'
             }
         }
 
