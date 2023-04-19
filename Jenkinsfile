@@ -11,7 +11,7 @@ pipeline {
     }
     stage('Login') {
       steps {
-        sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u alladin 098>
+        sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CRE>'
       }
     }
     stage('Test') {
