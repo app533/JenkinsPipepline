@@ -25,6 +25,13 @@ pipeline {
         sh 'docker push tmujee200/dockerfile'
       }
     }
+    stage('Futher Testing with SonarQube Scanner') {
+      steps {
+        withSonarQubeEnv('SonarQube') {
+         sh 'sonar-scanner -D"sonar.projectKey=forserver.js" -D"sonar.sources=." -D"sonar.host.url=http://3.226.235.109:9000" -D"sonar.token=squ_1e2e08b05b2a69d383da1df75e912e6707e3f16b"'
+        }
+      }
+    }
   }
   post {
     always {
