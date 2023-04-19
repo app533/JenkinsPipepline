@@ -28,7 +28,7 @@ pipeline {
     stage('Futher Testing with SonarQube Scanner') {
       steps {
         withSonarQubeEnv('SonarQube') {
-         sh 'sonar-scanner -D"sonar.projectKey=forserver.js" -D"sonar.sources=." -D"sonar.host.url=http://3.226.235.109:9000" -D"sonar.token=squ_1e2e08b05b2a69d383da1df75e912e6707e3f16b"'
+         sh 'sonar-scanner -D"sonar.projectKey=server.js" -D"sonar.sources=." -D"sonar.host.url=http://3.226.235.109:9000" -D"sonar.token=squ_2c262fa80555964eb9c30656a5f74c7512f10e26"'
         }
       }
     }
