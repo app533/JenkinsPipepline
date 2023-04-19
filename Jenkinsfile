@@ -11,12 +11,12 @@ pipeline {
     }
     stage('Login') {
       steps {
-        sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+        sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CRE>
       }
     }
     stage('Test') {
        steps {
-                sh 'docker run --rm tmujee200/dockerfile echo "Container launched successfully"'
+                sh 'docker run --rm tmujee200/dockerfile echo "Container lau>
             }
         }
 
@@ -25,6 +25,19 @@ pipeline {
         sh 'docker push tmujee200/dockerfile'
       }
     }
+    stage('Sonarqube') {
+    environment {
+        scannerHome = tool 'SonarQube'
+    }
+    steps {
+        withSonarQubeEnv('SonarQube') {
+            sh "SonarQube/bin/sonar-scanner"
+        }
+        timeout(time: 10, unit: 'MINUTES') {
+            waitForQualityGate abortPipeline: true
+        }
+   } 
+}
   }
   post {
     always {
