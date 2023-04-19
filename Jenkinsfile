@@ -11,12 +11,12 @@ pipeline {
     }
     stage('Login') {
       steps {
-        sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CRE>'
+        sh 'docker login -u tmujee200 --password-stdin'
       }
     }
     stage('Test') {
        steps {
-              sh 'docker run --rm tmujee200/dockerfile echo "Container lau>'
+              sh 'docker run --rm tmujee200/dockerfile echo "Container lau">'
             }
         }
 
