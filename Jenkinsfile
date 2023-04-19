@@ -10,9 +10,8 @@ pipeline {
       }
     }
     stage('Checkout') {
-       steps {
       git 'https://github.com/app533/JenkinsPipepline.git'
-      }
+      
     }
     stage('Login') {
       steps {
