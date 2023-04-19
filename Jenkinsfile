@@ -9,6 +9,11 @@ pipeline {
         sh 'docker build -t  tmujee200/dockerfile:CWpoveimage . '
       }
     }
+    stage('Checkout') {
+       steps {
+      git 'https://github.com/app533/foronar.git'
+      }
+    }
     stage('Login') {
       steps {
         sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
