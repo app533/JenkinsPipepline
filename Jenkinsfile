@@ -29,11 +29,7 @@ pipeline {
       steps {
         withSonarQubeEnv('SonarQube') {
           echo "weqwee"
-          sonar-scanner \
-         -Dsonar.projectKey=ok21 \
-         -Dsonar.sources=. \
-         -Dsonar.host.url=http://44.202.233.71:9000 \
-         -Dsonar.token=squ_81228677b80d1564f95398257263e0077befadd4
+          sh 'sonar-scanner -D"sonar.projectKey=ok21" -D"sonar.sources=." -D"sonar.host.url=http://44.202.233.71:9000" -D"sonar.token=squ_81228677b80d1564f95398257263e0077befadd4"'
         }
       }
     }
