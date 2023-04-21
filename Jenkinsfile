@@ -25,14 +25,19 @@ pipeline {
         sh 'docker push tmujee200/dockerfile'
       }
     }
-    stage('Futher Testing with SonarQube Scanner') {
-      steps {
-        withSonarQubeEnv('SonarQube') {
-         echo "Scanning with SonarQube" 
-        sh 'sonar-scanner -D"sonar.projectKey=newpro" -D"sonar.sources=./" -D"sonar.host.url=http://44.202.233.71:9000" -D"sonar.token=squ_dffc31e12a880b39aab207f25805d42280adc6cd"'
-        }
-      }
+    stage('Sonarqube') {
+    environment {
+        scannerHome = tool 'SonarQube'
     }
+    steps {
+        withSonarQubeEnv('SonarQube') {
+            sh "${scannerHome}/bin/sonar-scanner"
+        }
+        timeout(time: 10, unit: 'MINUTES') {
+            waitForQualityGate abortPipeline: true
+        }
+    }
+}
   }
   post {
     always {
