@@ -29,7 +29,7 @@ pipeline {
       steps {
         withSonarQubeEnv('SonarQube') {
          echo "Scanning with SonarQube" 
-        sh 'sonar-scanner -D"sonar.projectKey=newpro" -D"sonar.sources=." -D"sonar.host.url=http://44.202.233.71:9000" -D"sonar.token=squ_dffc31e12a880b39aab207f25805d42280adc6cd"'
+        sh 'sonar-scanner -D"sonar.projectKey=newpro" -D"sonar.sources=./" -D"sonar.host.url=http://44.202.233.71:9000" -D"sonar.token=squ_dffc31e12a880b39aab207f25805d42280adc6cd"'
         }
       }
     }
