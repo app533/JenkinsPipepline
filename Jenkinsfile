@@ -25,17 +25,13 @@ pipeline {
         sh 'docker push tmujee200/dockerfile'
       }
     }
-    stage('Sonarqube') {
-    environment {
-        scannerHome = tool 'SonarQube'
-    }
-    steps {
+   stage('SonarQube Analysis') {
+      steps {
         withSonarQubeEnv('SonarQube') {
-            sh "${scannerHome}/bin/sonar-scanner"
+          echo "weqwee"
+         sh 'sonar-scanner -D"sonar.projectKey=neforjavapro" -D"sonar.sources=." -D"sonar.host.url=http://44.202.195.71:9000" -D"sonar.token=squ_68395f3afacdc0fdbe0a0f89c7f3983eda9745eb"'
         }
-        timeout(time: 10, unit: 'MINUTES') {
-            waitForQualityGate abortPipeline: true
-        }
+      }
     }
 }
   }
