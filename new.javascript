@@ -2,7 +2,7 @@ var http = require('http');
 var requests=0;
 var podname= process.env.HOSTNAME;
 var startTime;
-var host;
+  var host;
 
 var handleRequest = function(request, response) {
   response.setHeader('Content-Type', 'text/plain');
