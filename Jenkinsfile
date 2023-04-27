@@ -48,11 +48,11 @@ pipeline {
          sh 'chmod +x minikube' 
       }
     }
-     stage('Install Minikube Stage 2'){
-      steps{
-         sh 'echo "Zab961613" | sudo -S mv minikube /usr/local/bin/'
-      }
-    }
+//      stage('Install Minikube Stage 2'){
+//       steps{
+//          sh 'echo "Zab961613" | sudo -S mv minikube /usr/local/bin/'
+//       }
+//    }
     stage('Start Minikube'){
       steps{
         sh 'minikube start'
