@@ -44,20 +44,25 @@ pipeline {
         sh 'sudo mv minikube /usr/local/bin/'
     }
     }
-    stage('Deploy on k8'){
-            steps{
-                sshagent(['final1']) {
-                  sh "kubectl run testing12 --image=tmujee200/dockerfile"
-                  script{
-                      try{
-                            sh "ssh ubuntu@192.168.49.2:8443 kubectl apply -f ."
-                     }catch(error){
-                            sh "ssh ubuntu@192.168.49.2:8443 kubectl create -f ."
-            }
-                  }
-              }
-            }
-        }
+    stage('Start Minikube'){
+      steps{
+        sh 'minikube start '
+      }
+    }
+//     stage('Deploy on k8'){
+//             steps{
+//                 sshagent(['final1']) {
+//                   sh "kubectl run testing12 --image=tmujee200/dockerfile"
+//                   script{
+//                       try{
+//                             sh "ssh ubuntu@192.168.49.2:8443 kubectl apply -f ."
+//                      }catch(error){
+//                             sh "ssh ubuntu@192.168.49.2:8443 kubectl create -f ."
+//             }
+//                   }
+//               }
+//             }
+//         }
 
   }
   post {
