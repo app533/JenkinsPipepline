@@ -37,12 +37,21 @@ pipeline {
                  }
             }
         }
-    stage('Dwonlaod and install MiniKube'){
+    stage('Dwonlaod MiniKube'){
       steps{
         sh 'curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64'
-        sh 'chmod +x minikube'
-        sh 'sudo mv minikube /usr/local/bin/'
+        
+      }
     }
+    stage('Install Minikube Stage 1'){
+      steps{
+         sh 'chmod +x minikube' 
+      }
+    }
+     stage('Install Minikube Stage 2'){
+      steps{
+         sh 'sudo mv minikube /usr/local/bin/' 
+      }
     }
     stage('Start Minikube'){
       steps{
