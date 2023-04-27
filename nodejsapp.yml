@@ -1,0 +1,73 @@
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: nodejs-app
+  namespace: default
+  labels:
+    app: nodejs-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nodejs-app
+  template:
+    metadata:
+      labels:
+        app: nodejs-app
+    spec:
+      containers:
+      - name: nodejs-app
+        image: "---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: nodejs-app
+  namespace: default
+  labels:
+    app: nodejs-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nodejs-app
+  template:
+    metadata:
+      labels:
+        app: nodejs-app
+    spec:
+      containers:
+      - name: nodejs-app
+        image: "tmujee200/dockerfile:CWpoveimage"
+        ports:
+          - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nodejs-app
+  namespace: default
+spec:
+  selector:
+    app: nodejs-app
+  type: LoadBalancer
+  ports:
+  - name: http
+    targetPort: 8080
+    port: 80"
+        ports:
+          - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nodejs-app
+  namespace: default
+spec:
+  selector:
+    app: nodejs-app
+  type: LoadBalancer
+  ports:
+  - name: http
+    targetPort: 8080
+    port: 80
