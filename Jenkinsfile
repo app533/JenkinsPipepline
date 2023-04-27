@@ -40,7 +40,7 @@ pipeline {
     stage('Deploy on k8'){
             steps{
                 sshagent(['final1']) {
-                  sh "kubectl run serjs --image=tmujee200/dockerfile"
+                  sh "kubectl run testing12 --image=tmujee200/dockerfile"
                   script{
                       try{
                             sh "ssh ubuntu@192.168.49.2:8443 kubectl apply -f ."
