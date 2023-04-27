@@ -43,6 +43,7 @@ pipeline {
         sh 'chmod +x minikube'
         sh 'sudo mv minikube /usr/local/bin/'
     }
+    }
     stage('Deploy on k8'){
             steps{
                 sshagent(['final1']) {
