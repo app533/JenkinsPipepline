@@ -25,6 +25,11 @@ pipeline {
         sh 'docker push tmujee200/dockerfile'
       }
     }
+    stage('Clone sources') {
+            steps {
+                git branch: 'main', credentialsId: 'GitHub', url: 'https://github.com/app533/javapro.git'
+            }
+        }
    stage('SonarQube Analysis') {
             steps {
                 withSonarQubeEnv('SonarQube') {
