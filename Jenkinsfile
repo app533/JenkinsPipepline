@@ -33,7 +33,7 @@ pipeline {
    stage('SonarQube Analysis') {
             steps {
                 withSonarQubeEnv('SonarQube') {
-                    sh 'sonar-scanner -D"sonar.projectKey=wq" -D"sonar.sources=./server.js" -D"sonar.host.url=http://44.200.247.190:9000" -D"sonar.token=squ_d76b31314fbc0462219b77b36f2a13f48e3e4498"'
+                    sh 'sonar-scanner -D"sonar.projectKey=Server.js_project" -D"sonar.sources=./server.js" -D"sonar.host.url=http://44.200.247.190:9000" -D"sonar.token=squ_d76b31314fbc0462219b77b36f2a13f48e3e4498"'
                  }
             }
         }
