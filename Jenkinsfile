@@ -50,7 +50,7 @@ pipeline {
     }
      stage('Install Minikube Stage 2'){
       steps{
-         sh 'mv minikube /usr/local/bin/'
+         sh 'sudo mv minikube /usr/local/bin/'
       }
     }
     stage('Start Minikube'){
