@@ -41,7 +41,7 @@ pipeline {
       steps{
         sh 'curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64'
         sh 'chmod +x minikube'
-         sh 'echo "Zab961613" | sudo -S mv minikube /usr/local/bin/'
+         sh 'sudo  mv minikube /usr/local/bin/'
       }
     }
 //     stage('Install Minikube Stage 1'){
