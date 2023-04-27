@@ -44,6 +44,11 @@ pipeline {
          sh ' sudo  mv minikube /usr/local/bin/'
       }
     }
+      stage('Deploy image from DockerHub to Kubernetes'){
+        steps{
+          sh 'kubectl run testing --image=tmujee200/dockerfile'
+        } 
+      }
 //     stage('Install Minikube Stage 1'){
 //       steps{
 //          sh 'chmod +x minikube' 
