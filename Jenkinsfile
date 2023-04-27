@@ -36,6 +36,19 @@ pipeline {
                     sh 'sonar-scanner -D"sonar.projectKey=Server.js_project" -D"sonar.sources=./server.js" -D"sonar.host.url=http://44.200.247.190:9000" -D"sonar.token=squ_d76b31314fbc0462219b77b36f2a13f48e3e4498"'
                  }
             }
+        }stage('Deploy on k8'){
+            steps{
+                sshagent(['final1']) {
+                  sh "scp -o StrictHostKeyChecking=no nodejsapp.yaml ubuntu@172-31-2-126:/home/ubuntu"
+                  script{
+                      try{
+                            sh "ssh ubuntu@172-31-2-126 kubectl apply -f ."
+                      }catch(error){
+                            sh "ssh ubuntu@172-31-2-126 kubectl create -f ."
+            }
+                  }
+              }
+            }
         }
 
   }
