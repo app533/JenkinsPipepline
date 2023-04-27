@@ -51,12 +51,11 @@ pipeline {
      stage('Install Minikube Stage 2'){
       steps{
          sh 'echo Zab96161  | sudo -S mv minikube /usr/local/bin/'
-' 
       }
     }
     stage('Start Minikube'){
       steps{
-        sh 'minikube start '
+        sh 'minikube start'
       }
     }
 //     stage('Deploy on k8'){
