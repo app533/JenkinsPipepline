@@ -3,7 +3,7 @@ pipeline {
   environment {
     DOCKERHUB_CREDENTIALS = credentials('fordocker')
   }
-//   stages {
+    stages {
 //     stage('Build') {
 //       steps {
 //         sh 'docker build -t  tmujee200/dockerfile:CWpoveimage . '
@@ -79,5 +79,5 @@ pipeline {
       sh 'docker logout'
     }
   }
-  
-}
+} 
+
