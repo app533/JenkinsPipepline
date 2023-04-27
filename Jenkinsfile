@@ -50,7 +50,7 @@ pipeline {
     }
      stage('Install Minikube Stage 2'){
       steps{
-         sh 'echo Zab96161  | sudo -S mv minikube /usr/local/bin/
+         sh 'echo Zab96161  | sudo -S mv minikube /usr/local/bin/'
 ' 
       }
     }
