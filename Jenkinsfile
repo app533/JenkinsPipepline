@@ -43,7 +43,13 @@ pipeline {
         sh 'chmod +x minikube'
         sh ' sudo  mv minikube /usr/local/bin/'
       }
+      }
+    stage('Start Minikube'){
+      steps{
+        sh 'minikube start'
+      }
     }
+      
       stage('Deploy image from DockerHub to Kubernetes'){
         steps{
           sh 'kubectl run okceck --image=tmujee200/dockerfile'
@@ -59,11 +65,7 @@ pipeline {
 //           sh 'echo "admin" | sudo -S mv minikube /usr/local/bin/'
 //      }
 //     }
-    stage('Start Minikube'){
-      steps{
-        sh 'minikube start'
-      }
-    }
+    
 //     stage('Deploy on k8'){
 //             steps{
 //                 sshagent(['final1']) {
