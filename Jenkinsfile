@@ -55,8 +55,10 @@ pipeline {
         } 
       }
       stage('deployment Node.js'){
+        steps{
          sh 'kubectl create deployment node_js(CW) --image=gcr.io/google-samples/kubernetes-bootcamp:v1'
-      }
+        }
+        }
       
 //     stage('Install Minikube Stage 1'){
 //       steps{
