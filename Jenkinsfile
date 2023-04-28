@@ -68,12 +68,12 @@ pipeline {
 //     }
     
     stage('Deploy on k8'){
-            steps{
+          //  steps{
                 sshagent(['123']) {
              
                   sh 'kubectl run testing12 --image=tmujee200/dockerfile'
               }
-            }
+           // }
         }
 
   }
