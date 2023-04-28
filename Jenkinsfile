@@ -41,12 +41,11 @@ pipeline {
       steps{
         sh 'curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64'
         sh 'chmod +x minikube'
-         sh ' sudo  mv minikube /usr/local/bin/'
+        sh ' sudo  mv minikube /usr/local/bin/'
       }
     }
       stage('Deploy image from DockerHub to Kubernetes'){
         steps{
-          
           sh 'kubectl run testing --image=tmujee200/dockerfile'
         } 
       }
