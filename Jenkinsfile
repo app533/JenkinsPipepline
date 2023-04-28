@@ -46,7 +46,6 @@ pipeline {
       }   
       stage('Start Minikube'){
       steps{
-        sh 'minikube stop'
         sh 'minikube start'
       }
     }
