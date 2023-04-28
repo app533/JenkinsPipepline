@@ -59,7 +59,7 @@ pipeline {
          sh 'kubectl create deployment nodejs111 --image=gcr.io/google-samples/kubernetes-bootcamp:v1'
         }
         }
-      stage{
+      stage('to scale the application'){
         steps{
           sh 'kubectl scale deployments/ nodejs111 --replicas=4'
         }
