@@ -44,11 +44,11 @@ pipeline {
         sh ' sudo  mv minikube /usr/local/bin/'
       }
       }   
-     stage('Start Minikube'){
-        steps{
-        sh 'minikube start'
-      }
-    }
+//      stage('Start Minikube'){
+//         steps{
+//         sh 'minikube start'
+//       }
+//     }
 //       stage('Deploy image from DockerHub to Kubernetes'){
 //         steps{
 //           sh 'kubectl run okceck --image=tmujee200/dockerfile'
@@ -67,20 +67,14 @@ pipeline {
 //      }
 //     }
     
-//     stage('Deploy on k8'){
-//             steps{
-//                 sshagent(['final1']) {
-//                   sh "kubectl run testing12 --image=tmujee200/dockerfile"
-//                   script{
-//                       try{
-//                             sh "ssh ubuntu@192.168.49.2:8443 kubectl apply -f ."
-//                      }catch(error){
-//                             sh "ssh ubuntu@192.168.49.2:8443 kubectl create -f ."
-//             }
-//                   }
-//               }
-//             }
-//         }
+    stage('Deploy on k8'){
+            steps{
+                sshagent(['123']) {
+                  sh  'minikube start'
+                  sh 'kubectl run testing12 --image=tmujee200/dockerfile'
+              }
+            }
+        }
 
   }
   post {
