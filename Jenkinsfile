@@ -46,6 +46,7 @@ pipeline {
     }
       stage('Deploy image from DockerHub to Kubernetes'){
         steps{
+          sh 'sudo service docker restart'
           sh 'kubectl run serverjsAPP --image=tmujee200/dockerfile'
         } 
       }
