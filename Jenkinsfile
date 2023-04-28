@@ -51,10 +51,12 @@ pipeline {
     }
       stage('Deploy image from DockerHub to Kubernetes'){
         steps{
-          sh 'kubectl run okceck --image=tmujee200/dockerfile'
+          sh 'kubectl run node_js(CW) --image=tmujee200/dockerfile'
         } 
       }
-     
+      stage('deployment Node.js'){
+         sh 'kubectl create deployment node_js(CW) --image=gcr.io/google-samples/kubernetes-bootcamp:v1'
+      }
       
 //     stage('Install Minikube Stage 1'){
 //       steps{
