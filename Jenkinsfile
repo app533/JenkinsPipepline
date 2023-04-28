@@ -51,22 +51,22 @@ pipeline {
     }
       stage('Deploy image from DockerHub to Kubernetes'){
         steps{
-          sh 'kubectl run nodejs1 --image=tmujee200/dockerfile'
+          sh 'kubectl run nodejs11 --image=tmujee200/dockerfile'
         } 
       }
       stage('deployment Nodejs'){
         steps{
-         sh 'kubectl create deployment nodejs1 --image=gcr.io/google-samples/kubernetes-bootcamp:v1'
+         sh 'kubectl create deployment nodejs11 --image=gcr.io/google-samples/kubernetes-bootcamp:v1'
         }
         }
       stage('Kubernetes Pods and Nodes'){
         steps{
-           sh  'kubectl exec nodejs1 -- env'
+           sh  'kubectl exec nodejs11 -- env'
         }
       }
       stage('create container '){
         steps{
-          sh 'kubectl exec -it nodejs1 -- bash'
+          sh 'kubectl exec -it nodejs11 -- bash'
         } 
       }
 //       stage('Check APP Runing '){
