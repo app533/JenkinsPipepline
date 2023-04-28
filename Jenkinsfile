@@ -51,18 +51,18 @@ pipeline {
     }
       stage('Deploy image from DockerHub to Kubernetes'){
         steps{
-          sh 'kubectl run nodejs11122 --image=tmujee200/dockerfile'
+          sh 'kubectl run nodejs0 --image=tmujee200/dockerfile'
         } 
       }
       stage('deployment Nodejs'){
         steps{
-         sh 'kubectl create deployment nodejs11122 --image=gcr.io/google-samples/kubernetes-bootcamp:v1'
+         sh 'kubectl create deployment nodejs0 --image=gcr.io/google-samples/kubernetes-bootcamp:v1'
         }
         }
       stage('to scale the application'){
         steps{
-         // sh 'kubectl scale deployments/ nodejs1112 --replicas=4'
-            sh 'kubectl scale deployments/nodejs11122 --replicas=4'
+         // sh 'kubectl scale deployments/ nodejs0 --replicas=4'
+            sh 'kubectl scale deployments/nodejs0 --replicas=4'
         }
         }
 //       stage('Kubernetes Pods and Nodes'){
