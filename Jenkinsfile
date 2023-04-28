@@ -63,7 +63,7 @@ pipeline {
         steps{
           sh 'kubectl scale deployments/ nodejs111 --replicas=4'
         }
-      }
+        }
 //       stage('Kubernetes Pods and Nodes'){
 //         steps{
 //            sh  'kubectl exec nodejs11 -- env'
