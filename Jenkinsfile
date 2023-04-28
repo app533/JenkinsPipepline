@@ -51,24 +51,29 @@ pipeline {
     }
       stage('Deploy image from DockerHub to Kubernetes'){
         steps{
-          sh 'kubectl run nodejs11 --image=tmujee200/dockerfile'
+          sh 'kubectl run nodejs111 --image=tmujee200/dockerfile'
         } 
       }
       stage('deployment Nodejs'){
         steps{
-         sh 'kubectl create deployment nodejs11 --image=gcr.io/google-samples/kubernetes-bootcamp:v1'
+         sh 'kubectl create deployment nodejs111 --image=gcr.io/google-samples/kubernetes-bootcamp:v1'
         }
         }
-      stage('Kubernetes Pods and Nodes'){
+      stage{
         steps{
-           sh  'kubectl exec nodejs11 -- env'
+          sh 'kubectl scale deployments/ nodejs111 --replicas=4'
         }
       }
-      stage('create container '){
-        steps{
-          sh 'kubectl exec -it nodejs11 -- bash'
-        } 
-      }
+//       stage('Kubernetes Pods and Nodes'){
+//         steps{
+//            sh  'kubectl exec nodejs11 -- env'
+//         }
+//       }
+//       stage('create container '){
+//         steps{
+//           sh 'kubectl exec -it nodejs11 -- bash'
+//         } 
+//       }
 //       stage('Check APP Runing '){
 //         steps{
 //           sh 'curl localhost:8080'
