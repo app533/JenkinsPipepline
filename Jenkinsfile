@@ -51,12 +51,12 @@ pipeline {
     }
       stage('Deploy image from DockerHub to Kubernetes'){
         steps{
-          sh 'kubectl run node_js --image=tmujee200/dockerfile'
+          sh 'kubectl run nodejs --image=tmujee200/dockerfile'
         } 
       }
-      stage('deployment Node.js'){
+      stage('deployment Nodejs'){
         steps{
-         sh 'kubectl create deployment node_js --image=gcr.io/google-samples/kubernetes-bootcamp:v1'
+         sh 'kubectl create deployment nodejs --image=gcr.io/google-samples/kubernetes-bootcamp:v1'
         }
         }
       
