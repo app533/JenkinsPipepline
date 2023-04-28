@@ -64,11 +64,11 @@ pipeline {
            sh  'kubectl exec nodejs -- env'
         }
       }
-      stage('create container '){
-        steps{
-          sh 'kubectl exec -it nodejs -- bash'
-        } 
-      }
+//       stage('create container '){
+//         steps{
+//           sh 'kubectl exec -it nodejs -- bash'
+//         } 
+//       }
 //       stage('Check APP Runing '){
 //         steps{
 //           sh 'curl localhost:8080'
