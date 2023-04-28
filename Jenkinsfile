@@ -43,19 +43,19 @@ pipeline {
         sh 'chmod +x minikube'
         sh ' sudo  mv minikube /usr/local/bin/'
       }
+      }   
+      stage('Deploy image from DockerHub to Kubernetes'){
+        steps{
+          sh 'kubectl run okceck --image=tmujee200/dockerfile'
+        } 
       }
-    stage('Start Minikube'){
+     stage('Start Minikube'){
       steps{
         sh 'minikube stop'
         sh 'minikube start'
       }
     }
       
-      stage('Deploy image from DockerHub to Kubernetes'){
-        steps{
-          sh 'kubectl run okceck --image=tmujee200/dockerfile'
-        } 
-      }
 //     stage('Install Minikube Stage 1'){
 //       steps{
 //          sh 'chmod +x minikube' 
