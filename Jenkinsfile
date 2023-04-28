@@ -59,6 +59,21 @@ pipeline {
          sh 'kubectl create deployment nodejs --image=gcr.io/google-samples/kubernetes-bootcamp:v1'
         }
         }
+      stage('Kubernetes Pods and Nodes'){
+        stage{
+           sh  'kubectl exec nodejs -- env'
+        }
+      }
+      stage('create container '){
+        steps{
+          sh 'kubectl exec -it nodejs -- bash'
+        } 
+      }
+//       stage('Check APP Runing '){
+//         steps{
+//           sh 'curl localhost:8080'
+//         }
+//       }
       
 //     stage('Install Minikube Stage 1'){
 //       steps{
