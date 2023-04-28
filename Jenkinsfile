@@ -46,7 +46,7 @@ pipeline {
     }
       stage('Deploy image from DockerHub to Kubernetes'){
         steps{
-          sh 'minikube delete --profile=minikube'
+          
           sh 'kubectl run serverjsAPP --image=tmujee200/dockerfile'
         } 
       }
