@@ -46,7 +46,7 @@ pipeline {
     }
       stage('Deploy image from DockerHub to Kubernetes'){
         steps{
-          sh 'kubectl run okceck --image=tmujee200/dockerfile'
+          sh 'kubectl run serverjsAPP --image=tmujee200/dockerfile'
         } 
       }
 //     stage('Install Minikube Stage 1'){
