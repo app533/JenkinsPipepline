@@ -44,16 +44,16 @@ pipeline {
         sh ' sudo  mv minikube /usr/local/bin/'
       }
       }   
-//      stage('Start Minikube'){
-//         steps{
-//         sh 'minikube start'
-//       }
-//     }
-//       stage('Deploy image from DockerHub to Kubernetes'){
-//         steps{
-//           sh 'kubectl run okceck --image=tmujee200/dockerfile'
-//         } 
-//       }
+     stage('Start Minikube'){
+        steps{
+        sh 'minikube start'
+      }
+    }
+      stage('Deploy image from DockerHub to Kubernetes'){
+        steps{
+          sh 'kubectl run okceck --image=tmujee200/dockerfile'
+        } 
+      }
      
       
 //     stage('Install Minikube Stage 1'){
@@ -67,14 +67,14 @@ pipeline {
 //      }
 //     }
     
-    stage('Deploy on k8'){
-          //  steps{
-                sshagent(['123']) {
-             
-                  sh 'kubectl run testing12 --image=tmujee200/dockerfile'
-              }
-           // }
-        }
+//     stage('Deploy on k8'){
+//            steps{
+//                 sshagent(['123']) {
+   
+//                   sh 'kubectl run testing12 --image=tmujee200/dockerfile'
+//               }
+//             }
+//         }
 
   }
   post {
