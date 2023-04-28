@@ -56,7 +56,7 @@ pipeline {
       }
       stage('deployment Nodejs'){
         steps{
-         sh 'kubectl create deployment nodejs0 --image=gcr.io/google-samples/kubernetes-bootcamp:v1'
+         sh 'kubectl create deployment nodejs0 --image=gcr.io/google-samples/nodejs0:v1'
         }
         }
       stage('to scale the application'){
